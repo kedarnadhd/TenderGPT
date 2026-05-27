@@ -8,9 +8,10 @@ import unicodedata
 import re
 import time
 
-from langchain_community.vectorstores.chroma import Chroma
+# from langchain_community.vectorstores.chroma import Chroma
 from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 # from langchain_community.embeddings.ollama import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain_community.llms import Ollama
 from reliability.smart_chunker import create_smart_chunks
 from reliability.confidence import calculate_confidence
@@ -149,7 +150,7 @@ def create_chunks(pages):
 # VECTOR DB
 # --------------------------------
 def build_vector_db(chunks, metadata):
-    db = Chroma.from_texts(
+    db = FAISS.from_texts(
         texts=chunks,
         embedding=embedding,
         metadatas=metadata,
