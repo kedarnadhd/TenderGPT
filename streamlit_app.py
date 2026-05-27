@@ -154,7 +154,7 @@ def build_vector_db(chunks, metadata):
         texts=chunks,
         embedding=embedding,
         metadatas=metadata,
-        persist_directory="chroma_store",
+        # persist_directory="chroma_store",
         collection_name=f"temp_{uuid.uuid4().hex[:8]}"
     )
     return db

@@ -1,4 +1,6 @@
-from langchain_community.vectorstores.chroma import Chroma
+# from langchain_community.vectorstores.chroma import Chroma
+from langchain_community.vectorstores import FAISS
+
 # from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.embeddings.ollama import OllamaEmbeddings
 
@@ -15,7 +17,7 @@ VECTOR_DB_DIR = "vector_db"
 
 
 def build_vector_db(chunks , metadata):
-    db = Chroma.from_texts(
+    db = FAISS.from_texts(
         texts=chunks,
         embedding=embedding,
         metadatas=metadata,
