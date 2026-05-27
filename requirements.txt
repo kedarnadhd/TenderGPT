@@ -2,12 +2,9 @@ streamlit
 langchain
 langchain-community
 chromadb
-sentence-transformers==2.2.2
-transformers==4.41.2
-torch==2.2.2
-pypdf
-pymupdf
+sentence-transformers
+transformers
+torch
+PyMuPDF
 pandas
-openpyxl
-tiktoken
-ollama
+pydantic
