@@ -5,6 +5,7 @@ chromadb
 sentence-transformers
 transformers
 torch
+torchvision
 PyMuPDF
 pandas
 pydantic
