@@ -1,0 +1,19 @@
+# virtual env
+siraivenv/
+
+# vector db
+chroma_store/
+vector_db/
+
+# uploads
+uploads/
+
+# outputs
+outputs/
+
+# python cache
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
