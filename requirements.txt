@@ -2,7 +2,8 @@ streamlit
 langchain
 langchain-community
 langchain-text-splitters
-chromadb==0.4.24
+chromadb==0.5.23
+numpy<2.0
 sentence-transformers
 transformers
 torch
