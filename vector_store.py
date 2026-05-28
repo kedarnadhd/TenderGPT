@@ -1,19 +1,19 @@
 # from langchain_community.vectorstores.chroma import Chroma
 from langchain_community.vectorstores.faiss import FAISS
 
-# from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.embeddings.ollama import OllamaEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings.ollama import OllamaEmbeddings
 
 
-# embedding = HuggingFaceEmbeddings(
-#     model_name="sentence-transformers/all-MiniLM-L6-v2"
-# )
-
-embedding = OllamaEmbeddings(
-    model= "nomic-embed-text"
+embedding = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-VECTOR_DB_DIR = "vector_db"
+# embedding = OllamaEmbeddings(
+#     model= "nomic-embed-text"
+# )
+
+# VECTOR_DB_DIR = "vector_db"
 
 
 def build_vector_db(chunks , metadata):
@@ -21,7 +21,5 @@ def build_vector_db(chunks , metadata):
         texts=chunks,
         embedding=embedding,
         metadatas=metadata,
-        persist_directory=VECTOR_DB_DIR,
-        collection_name="tender_docs"
     )
     return db
