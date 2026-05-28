@@ -1,5 +1,5 @@
 # from langchain_community.vectorstores.chroma import Chroma
-from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores.faiss import FAISS
 
 # from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.embeddings.ollama import OllamaEmbeddings
