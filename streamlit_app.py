@@ -108,7 +108,7 @@ embedding, llm = load_models()
 # --------------------------------
 def extract_pdf_pages(pdf_path):
 
-    start = time.time()
+    # start = time.time()
 
     doc = fitz.open(pdf_path)
 
@@ -125,9 +125,9 @@ def extract_pdf_pages(pdf_path):
             "text": text
         })
 
-    end = time.time()
+    # end = time.time()
 
-    st.write(f"PDF Reading Time: {round(end-start,2)} sec")
+    # st.write(f"PDF Reading Time: {round(end-start,2)} sec")
 
     return pages
 
