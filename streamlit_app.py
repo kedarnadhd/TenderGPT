@@ -11,7 +11,7 @@ import time
 # from langchain_community.vectorstores.chroma import Chroma
 from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 # from langchain_community.embeddings.ollama import OllamaEmbeddings
-from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores.faiss import FAISS
 from langchain_community.llms import Ollama
 from reliability.smart_chunker import create_smart_chunks
 from reliability.confidence import calculate_confidence
@@ -257,7 +257,12 @@ def extract_fields(db, full_text, chunks, metadata):
         if field == "Tender publishing date":
             special_date = extract_publish_date_from_bid_block(full_text)
             if special_date:
-                results[field] = special_date
+                results[field] = {
+                    "value": special_date,
+                    "page": "Direct Match",
+                    "confidence": 95,
+                    "method": "regex"
+                }
                 continue
 
         # direct extraction
@@ -473,8 +478,10 @@ if uploaded_file:
 
         csv = table_data.to_csv(index=False)
 
+        st.write(table_data)
+
         st.download_button(
-            "Download CSV",
+            "📥 Download Tender Results CSV",
             csv,
             file_name="tender_output.csv",
             mime="text/csv"
